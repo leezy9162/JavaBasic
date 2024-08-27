@@ -1,8 +1,8 @@
-package day15.sortAlgo;
+package day16;
 
 import java.util.Arrays;
 
-public class BubbleSortEx {
+public class SelectionSortEx {
 	public static void main(String[] args) {
 		//new int array
 		int[] intArr = {9,8,7,6,5,4,3,2,1};
@@ -13,10 +13,8 @@ public class BubbleSortEx {
 
 		
 		//bubble sort
-//		bubbleSort(intArr);
+		bubbleSort(intArr);
 		
-		//selection sort
-		selectionSort(intArr);
 		
 		System.out.println("정렬 후: ");
 		System.out.println(Arrays.toString(intArr));
@@ -35,21 +33,6 @@ public class BubbleSortEx {
 				System.out.println(Arrays.toString(intArr));
 			}
 			System.out.println("---------------------------");
-		}
-	}
-	
-	private static void selectionSort(int[] intArr) {
-		for (int i = 0; i < intArr.length; i++) {
-			int minIndex = i; //가장 작은 값의 인덱스
-			for (int j = i+1; j < intArr.length; j++) {
-				if (intArr[minIndex] > intArr[j]) {
-					minIndex = j;
-				}
-			}
-			//swapping
-			int temp = intArr[i];
-			intArr[i] = intArr[minIndex];
-			intArr[minIndex] = temp;
 		}
 	}
 }
