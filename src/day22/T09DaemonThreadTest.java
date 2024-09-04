@@ -1,0 +1,46 @@
+package day22;
+
+public class T09DaemonThreadTest {
+	public static void main(String[] args) {
+		AutoSaveThread th = new AutoSaveThread();
+		
+		//데몬스레드로 설정하기(start()메서드 호출전에 설정해야 한다.)
+		th.setDaemon(true);
+		th.start();
+		
+		try {
+			for (int i = 0; i <= 20; i++) {
+				System.out.println("작업 - " + i );
+				Thread.sleep(1000);
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("메인스레드 종료");
+		
+	}
+}
+
+//자동 저장 기능을 제공하는 스레드
+class AutoSaveThread extends Thread{
+	
+	public void save() {
+		System.out.println("작업 내용을 저장합니다...");
+	}
+	
+	@Override
+	public void run() {
+		//무한루프를 돈다
+		while (true) {
+			try {
+				//3초
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			//저장기능 호출
+			save();
+		}
+	}
+}
