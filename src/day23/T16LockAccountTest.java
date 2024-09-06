@@ -31,7 +31,6 @@ public class T16LockAccountTest {
 		bankThread2.start();
 		bankThread3.start();
 		
-		
 	}
 }
 
